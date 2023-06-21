@@ -12,7 +12,7 @@ function App() {
     const unsubscribe = onSnapshot(q, (querySnapShot) => {
       const orders: any = [];
       querySnapShot.forEach((doc) => {
-        orders.push(doc.data());
+        orders.push({ ...doc.data(), id: doc.id });
       });
       setData(orders);
     });

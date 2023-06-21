@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-// import OrderDisplayModal from "../UI/OrderDisplayModal";
+import OrderDisplayModal from "../UI/OrderDisplayModal";
 
 interface TableRowProps {
   tableNumber: string;
@@ -13,6 +13,8 @@ const Tablerow: React.FC<TableRowProps> = ({
   tableNumber,
   orderId,
   status,
+  orders,
+  docId,
 }) => {
   const [showDrop, setShowDrop] = useState(false);
   const [showOrder, setShowOrder] = useState(false);
@@ -128,12 +130,12 @@ const Tablerow: React.FC<TableRowProps> = ({
           )}
         </td>
       </tr>
-      {/* <OrderDisplayModal
+      <OrderDisplayModal
         modalOpen={showOrder}
         onModalClick={() => setShowOrder(false)}
         orders={orders}
         docId={docId}
-      /> */}
+      />
     </>
   );
 };
