@@ -82,7 +82,7 @@ const Tablerow: React.FC<TableRowProps> = ({
             Brings all your news into one place
           </p>
         </div> */}
-          <p>Aisha Saddick</p>
+          <p>Kate Ofori</p>
         </td>
 
         <td className="px-4 py-4 text-sm whitespace-nowrap">
