@@ -8,6 +8,7 @@ interface OrderDisplayModalProps {
   onModalClick: any;
   orders: any;
   docId: string;
+  processed: boolean;
 }
 
 const OrderDisplayModal: React.FC<OrderDisplayModalProps> = ({
@@ -15,6 +16,7 @@ const OrderDisplayModal: React.FC<OrderDisplayModalProps> = ({
   onModalClick,
   orders,
   docId,
+  processed,
 }) => {
   //   const [open, setOpen] = useState(true);
 
@@ -51,7 +53,7 @@ const OrderDisplayModal: React.FC<OrderDisplayModalProps> = ({
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full items-center justify-center p-4  text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -71,12 +73,12 @@ const OrderDisplayModal: React.FC<OrderDisplayModalProps> = ({
                       />
                     </div> */}
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                      {/* <Dialog.Title
+                      <Dialog.Title
                         as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-base font-semibold text-red-900 leading-6 "
                       >
-                        Deactivate account
-                      </Dialog.Title> */}
+                        Order details
+                      </Dialog.Title>
                       <div className="mt-2">
                         <ul>
                           {orders.map((order: any) => (
@@ -88,13 +90,15 @@ const OrderDisplayModal: React.FC<OrderDisplayModalProps> = ({
                   </div>
                 </div>
                 <div className="bg-white px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-red-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={updateOrderStatusHandler}
-                  >
-                    Accept
-                  </button>
+                  {!processed && (
+                    <button
+                      type="button"
+                      className="inline-flex w-full justify-center rounded-md bg-red-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                      onClick={updateOrderStatusHandler}
+                    >
+                      Accept
+                    </button>
+                  )}
                   {/* <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"

@@ -69,7 +69,7 @@ const Tablerow: React.FC<TableRowProps> = ({
                 !status ? "text-red-500" : "text-emerald-400"
               } `}
             >
-              {!status ? "New Order" : "Processed"}
+              {!status ? "New Order" : "Accepted"}
             </h2>
           </div>
         </td>
@@ -135,6 +135,7 @@ const Tablerow: React.FC<TableRowProps> = ({
         onModalClick={() => setShowOrder(false)}
         orders={orders}
         docId={docId}
+        processed={status}
       />
     </>
   );
